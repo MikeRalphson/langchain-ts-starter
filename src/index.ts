@@ -1,15 +1,36 @@
 import * as dotenv from "dotenv";
-import { OpenAI } from "langchain";
+import * as util from "node:util";
+import { ChatOpenAI } from "langchain/chat_models";
+import { initializeAgentExecutor } from "langchain/agents";
+import {
+  RequestsGetTool,
+  RequestsPostTool,
+  AIPluginTool,
+} from "langchain/tools";
 
 dotenv.config();
 
-const model = new OpenAI({
-  modelName: "gpt-3.5-turbo",
-  openAIApiKey: process.env.OPENAI_API_KEY,
-});
+async function main() {
+  const tools = [
+    new RequestsGetTool(),
+    new RequestsPostTool(),
+    await AIPluginTool.fromPluginUrl(
+      "https://apis.guru/.well-known/ai-plugin.json"
+    ),
+  ];
+  const agent = await initializeAgentExecutor(
+    tools,
+    new ChatOpenAI({ temperature: 0 }),
+    "chat-zero-shot-react-description",
+    true
+  );
 
-const res = await model.call(
-  "What's a good idea for an application to build with GPT-3?"
-);
+  const result = await agent.call({
+    input:
+      "How many APIs are available in the APIs.guru OpenAPI Directory? Use the metrics endpoint. Explain your reasoning.",
+  });
 
-console.log(res);
+  console.log(util.inspect(result, { depth: null }));
+}
+
+main();
