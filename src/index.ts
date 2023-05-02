@@ -17,7 +17,7 @@ async function main(domain: string, input: string) {
   ];
   const agent = await initializeAgentExecutorWithOptions(
     tools,
-    new ChatOpenAI({ temperature: 0 }),
+    new ChatOpenAI({ temperature: 0.1 }),
     { agentType: "chat-zero-shot-react-description", verbose: true }
   );
 
@@ -26,6 +26,7 @@ async function main(domain: string, input: string) {
 }
 
 // main('www.klarna.com','what t shirts are available in klarna?');
-// main('apis.guru','How many APIs are available in the APIs.guru OpenAPI Directory?');
-main('apis.guru','How many microsoft.com APIs are available in the APIs.guru OpenAPI Directory?');
+main('apis.guru','How many APIs are available in the APIs.guru OpenAPI Directory?');
+// main('apis.guru','How many microsoft.com APIs are available in the APIs.guru OpenAPI Directory?');
+// main('server.shop.app','What science-fiction t-shirts are available?');
 // main('www.freetv-app.com','What is the headline of the top news story for San Francisco, California?');
