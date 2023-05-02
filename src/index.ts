@@ -27,4 +27,5 @@ async function main(domain: string, input: string) {
 
 // main('www.klarna.com','what t shirts are available in klarna?');
 // main('apis.guru','How many APIs are available in the APIs.guru OpenAPI Directory?');
-main('dev.to','What is one good article on dev.to specifically about the history of the OpenAPI Specification?');
+main('apis.guru','How many microsoft.com APIs are available in the APIs.guru OpenAPI Directory?');
+// main('www.freetv-app.com','What is the headline of the top news story for San Francisco, California?');

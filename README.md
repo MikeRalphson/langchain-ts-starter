@@ -1,6 +1,6 @@
-# langchain-ts-starter
+# langchain-demo
 
-Boilerplate to get started quickly with the [Langchain Typescript SDK](https://github.com/hwchase17/langchainjs).
+Based on `langchain-ts-starter', boilerplate to get started quickly with the [Langchain Typescript SDK](https://github.com/hwchase17/langchainjs).
 
 This uses the same tsconfig and build setup as the [examples repo](https://github.com/hwchase17/langchainjs/tree/main/examples), to ensure it's in sync with the official docs.
 
@@ -17,5 +17,10 @@ This uses the same tsconfig and build setup as the [examples repo](https://githu
 - Clone this repository
 - `npm install`
 - Write your code in `src`
-- `turbo run build lint check` to run build scripts quickly in parallel
+- `turbo run build lint` to run build scripts quickly in parallel
 - `npm start` to run your program
+
+# Bugs
+
+* This repo is pinned to an older version of `langchain` because newer versions have bugs in the Zod schema used to process responses.
+
