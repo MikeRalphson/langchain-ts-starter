@@ -11,7 +11,7 @@
     "build": "tsc --declaration --outDir dist/",
     "start": "tsx -r dotenv/config src/index.ts",
     "start:dist": "yarn build && node -r dotenv/config dist/index.js",
-    "lint": "eslint src",
+    "lint": "eslint src quotesAPI",
     "lint:fix": "npm run lint --fix",
     "format": "prettier --write \"**/*.ts\"",
     "format:check": "prettier --list-different \"**/*.ts\""
@@ -28,7 +28,8 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "langchain": "^0.0.59"
+    "langchain": "^0.0.59",
+    "openai": "^3.2.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
